@@ -429,22 +429,9 @@ export class CoreLoginHelperProvider {
      * @returns Path and params.
      */
     async getAddSiteRouteInfo(showKeyboard?: boolean): Promise<[string, Params]> {
-        if (CoreConstants.CONFIG.demoMode) {
-            const demoModeSite = this.getDemoModeSiteInfo();
-
-            if (demoModeSite) {
-                return ['/login/credentials', { siteUrl: demoModeSite.url }];
-            }
-        }
-
-        const sites = await this.getAvailableSites();
-
-        if (sites.length === 1) {
-            // Fixed URL is set, go to credentials page.
-            return ['/login/credentials', { siteUrl: sites[0].url }];
-        }
-
-        return ['/login/site', { showKeyboard }];
+        // Solution 2: Forcer l'aller direct vers les credentials pour un serveur spécifique
+        const defaultSiteUrl = 'https://votre-serveur-moodle.com'; // Remplacez par votre URL
+        return ['/login/credentials', { siteUrl: defaultSiteUrl }];
     }
 
     /**
