@@ -430,7 +430,7 @@ export class CoreLoginHelperProvider {
      */
     async getAddSiteRouteInfo(showKeyboard?: boolean): Promise<[string, Params]> {
         // Solution 2: Forcer l'aller direct vers les credentials pour un serveur spécifique
-        const defaultSiteUrl = 'https://votre-serveur-moodle.com'; // Remplacez par votre URL
+        const defaultSiteUrl = 'https://moodle-demo.beekee.ch'; // Remplacez par votre URL
         return ['/login/credentials', { siteUrl: defaultSiteUrl }];
     }
 
